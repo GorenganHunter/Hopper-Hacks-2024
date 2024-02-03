@@ -9,4 +9,23 @@
 body {
   background: var(--background) !important;
   color: var(--text) !important;
+  font-size: 24px;
+}
+
+h4{
+  font-size: 34px !important;
+}
+
+img {
+  border-radius: 12px;
+}
+#gak{
+  gap: 20px;
+  background: #003C3C;
+}
+.navbar-dark {
+  background: rgba(0, 0, 0, 0.60) !important;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(6.5px);
+-webkit-backdrop-filter: blur(6.5px);
 }

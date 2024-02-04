@@ -1,10 +1,13 @@
 "use client";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import ReactQuill from "react-quill";
+import dynamic from "next/dynamic"
+// import ReactQuill from "react-quill";
 import { useState } from "react"; // Perbaikan import statement
 import "react-quill/dist/quill.snow.css";
 import { useRouter } from "next/navigation";
+
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 
 export default function Post() {
   const router = useRouter();

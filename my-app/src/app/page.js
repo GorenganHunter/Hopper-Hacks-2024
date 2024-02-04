@@ -1,26 +1,9 @@
+//"use client"
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./page.module.css";
 import MyNavbar from "../components/Navbar";
-export default function Home() {
-  const handleSearch = () => {
-    const searchTerm = document.getElementById('searchInput').value.trim();
-    if (searchTerm !== '') {
-      // Construct the search URL
-      const searchURL = `/api/post?search=${encodeURIComponent(searchTerm)}`;
-      
-      // Redirect to the search URL
-      window.location.href = searchURL;
-    }
-  };
-
-  // Function to handle key press
-  const handleKeyPress = (e) => {
-    // If Enter key is pressed (keyCode 13)
-    if (e.key === 'Enter'){
-      handleSearch();
-    }
-  };
-
+import Search from "../components/Search";
+export default function Home() {  
   return (
     <main>
       <div className="d-lg-flex align-items-center mb-3 pb-3">
@@ -28,12 +11,7 @@ export default function Home() {
           <h1 className="display-3 bold text-center">
             <strong>Renew Planet</strong>
           </h1>
-          <input
-      id="searchInput"
-      className="form-control p-3 mb-4 mt-4"
-      placeholder="Search"
-      //onKeyPress={handleKeyPress}
-    />
+          <Search />
           <h4>What's Renew Planet?</h4>
           <p>
             Renew Planet is an application to add, search, and share the things

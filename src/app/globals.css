@@ -12,29 +12,30 @@ body {
   font-size: 24px;
 }
 
-h4{
+h4 {
   font-size: 34px !important;
 }
 
-img, iframe {
+img,
+iframe {
   border-radius: 12px;
+  max-width: 100%;
 }
-#gak{
+#gak {
   gap: 20px;
-  background: #003C3C;
+  background: #003c3c;
 }
 .navbar-dark {
-  background: rgba(0, 0, 0, 0.60) !important;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(6.5px);
--webkit-backdrop-filter: blur(6.5px);
+  background: rgba(0, 0, 0, 0.6) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
 }
-#p{
-  gap:20px;
+#p {
+  gap: 20px;
 }
 
-
-.custom-react-quill .ql-editor{
+.custom-react-quill .ql-editor {
   background-color: white; /* Atur latar belakang menjadi putih */
   color: black; /* Atur warna teks menjadi hitam */
   /* Tambahkan properti CSS lainnya sesuai kebutuhan Anda */
@@ -45,4 +46,3 @@ backdrop-filter: blur(6.5px);
   color: black; /* Atur warna teks menjadi hitam */
   /* Tambahkan properti CSS lainnya sesuai kebutuhan Anda */
 }
-

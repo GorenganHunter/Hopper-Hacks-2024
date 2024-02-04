@@ -1,17 +1,17 @@
-"use client"
+"use client";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import ReactQuill from 'react-quill';
-import { useState } from 'react'; // Perbaikan import statement
-import 'react-quill/dist/quill.snow.css';
-import { useRouter } from "next/router";
+import ReactQuill from "react-quill";
+import { useState } from "react"; // Perbaikan import statement
+import "react-quill/dist/quill.snow.css";
+import { useRouter } from "next/navigation";
 
 export default function Post() {
-  const router = useRouter()
+  const router = useRouter();
   const [post, setPost] = useState({
     title: "",
     content: "",
-    image: "", 
+    image: "",
     youtube: "",
   });
 
@@ -20,23 +20,22 @@ export default function Post() {
   };
 
   const submit = (e) => {
+    console.log(post);
     e.preventDefault();
-    fetch('/api/post', {
-      method: 'POST',
+    fetch("/api/post", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(post),
-      headers: { 'Content-Type': 'application/json' },
     })
       .then((res) => res.json())
       .then((res) => {
-        const id = res._id.toString()
-        router.push("/details/" + id)
-      })//eh buset ternyata beliau disini jir
-      //btw untuk image gw gak paham cara ngesendnya
-      // oke ntar aja
-       //mau pu
-     //oke oke gww mau pelajar next term dulu buat details
+        //console.log(res);
+        //bisa bisa
+        const id = res.post._id.toString();
+        router.push("/post/" + id);
+      })
       .catch((error) => {
-        console.error('Error:', error);
+        console.error("Error:", error);
       });
   };
 
@@ -50,6 +49,7 @@ export default function Post() {
           </label>
           <input
             type="text"
+            name="title"
             id="form4Example1"
             className="form-control"
             value={post.title}
@@ -70,15 +70,24 @@ export default function Post() {
         <div className="mb-4">
           <input type="file" id="myFile" name="filename" />
         </div>
-        <div className="mb-4">
+        <div className="mb-5">
           <label htmlFor="form4Example3" className="form-label">
             Content
           </label>
           <div className="custom-react-quill">
-            <ReactQuill theme="snow" value={post.content} onChange={handleChange} />
+            <ReactQuill
+              theme="snow"
+              name="content"
+              value={post.content}
+              onChange={handleChange}
+              style={{ height: "200px" }} // Atur lebar sesuai kebutuhan Anda
+            />
           </div>
         </div>
-        <button type="submit" className="btn btn-primary btn-block">
+        <button
+          type="submit"
+          onClick={submit}
+          className="btn btn-primary btn-block">
           Send
         </button>
       </form>

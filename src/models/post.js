@@ -5,11 +5,11 @@ const PostSchema = new Schema(
     title: String,
     content: String,
     author: String,
-    image: String,
+    //image: String,
     youtube: String,
   },
   {
-    timestamps: true
+    timestamps: true,
   }
 );
 

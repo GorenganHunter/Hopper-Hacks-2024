@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./page.module.css";
 import MyNavbar from "../components/Navbar";
 import Search from "../components/Search";
-export default function Home() {  
+export default function Home() {
   return (
     <main>
       <div className="d-lg-flex align-items-center mb-3 pb-3">
@@ -27,17 +27,17 @@ export default function Home() {
             height: "100vh",
             backgroundSize: "cover",
             borderRadius: "24px 0 0 24px",
-          }}
-        >
+          }}>
           <img
             className="align-self-center justify-content-center mx-auto"
-            src="favicon.ico"
+            style={{ maxWidth: "30%" }}
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/The_Earth_seen_from_Apollo_17_with_transparent_background.png/2058px-The_Earth_seen_from_Apollo_17_with_transparent_background.png"
           />
         </div>
       </div>
       <div className="d-lg-flex justify-content-center p-3 mt-3">
         <img
-          style={{ maxWidth: "100%" }}
+          style={{ maxWidth: "100%", marginRight: "10%" }}
           className="align-self-center justify-content-center"
           src="https://cdn.pixabay.com/photo/2022/12/01/04/42/man-7628305_640.jpg"
         />
@@ -51,8 +51,7 @@ export default function Home() {
       </div>
       <div
         className="d-lg-flex text-center justify-content-center p-3 mt-3 pt-4"
-        id="gak"
-      >
+        id="gak">
         <img
           src="https://media.tenor.com/Irdc3PYki0cAAAAi/throws-trash.gif"
           style={{ width: "150px;" }}
@@ -65,7 +64,9 @@ export default function Home() {
         </article>
       </div>
       <div className="d-lg-flex justify-content-center p-3 mt-3">
-        <article className="p-4 align-self-center">
+        <article
+          className="mr-3 p-4 align-self-center"
+          style={{ marginRight: "20%" }}>
           <h4>
             <strong>Join Us!</strong>
           </h4>

@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { authOptions } from "@/utils/auth";
 import { getServerSession } from "next-auth/next";
+import SignIn from "@/components/SignIn";
 
 //sign in nya dimana
 // agak laen lu naruh nya
@@ -12,13 +13,22 @@ import { getServerSession } from "next-auth/next";
 // gw liat error nya dia gabisa ditaruh langsung gitubgw search bentar
 function MyNavbar() {
   return (
-    <nav className="navbar navbar-dark p-2 sticky-top">
+    <nav className="navbar navbar-expand-lg navbar-dark p-2 sticky-top">
       <a className="navbar-brand" href="/">
         Renew Planet
       </a>
-      <button className="btn btn-outline-success my-2 my-sm-0" type="submit">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active  mr-2">
+          <a class="nav-link btn btn-outline-dark" href="/post">
+            Add Post!
+          </a>
+        </li>
+        <SignIn />
+      </ul>
+      {/* liat components/SignIn.js */}
+      {/*<button className="btn btn-outline-success my-2 my-sm-0" type="submit">
         Login
-      </button>
+  </button>*/}
     </nav>
   );
 }

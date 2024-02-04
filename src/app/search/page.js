@@ -51,20 +51,14 @@ export default function search() {
               <p>{post.description}</p>
               <div className="col container">
                 <div className="">
-                  <button
-                    className="btn btn-outline-warning me-4 rounded-5"
+                  <a
+                    href={`/post/${post._id}`} // Correct usage of backticks and curly braces
+                    className="btn btn-outline-warning rounded-5"
                     style={{ width: "120px", padding: "10px" }}
                     onClick={() => handleRead(post.id)} // handleRead function should be defined
                   >
                     Read
-                  </button>
-                  <button
-                    className="btn btn-outline-info me-4 rounded-5"
-                    style={{ width: "120px", padding: "10px" }}
-                    onClick={() => handleEdit(post.id)} // handleEdit function should be defined
-                  >
-                    Edit
-                  </button>
+                  </a>
                 </div>
               </div>
             </article>

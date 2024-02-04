@@ -34,7 +34,7 @@ export async function POST(req) {
   const body = await req.json();
   // biarin dulu ini buat ngetes body nya masuk apa kagak
   //ngetest tadi apakah bisa json atau kagak ternyata sama aje
-  const { title, content } = body;
+  const { title, content, youtube } = body;
   if (!title)
     return Response.json(
       {
@@ -68,6 +68,7 @@ export async function POST(req) {
     title,
     content,
     author: session.user.name,
+    youtube,
   });
   return Response.json({ post });
 }

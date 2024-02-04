@@ -29,10 +29,10 @@ export default function Post() {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
+        //console.log(res);
         //bisa bisa
-        /*const id = res.post._id.toString();
-        router.push("/details/" + id);*/
+        const id = res.post._id.toString();
+        router.push("/post/" + id);
       })
       .catch((error) => {
         console.error("Error:", error);

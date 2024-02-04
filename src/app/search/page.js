@@ -3,10 +3,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import Search from "../../components/Search";
 import styles from "./page.search.css";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
-export default function search() {
+function SearchEl() {
   const searchParams = useSearchParams();
   const [posts, setPosts] = useState([]);
 
@@ -67,4 +67,10 @@ export default function search() {
       </div>
     </main>
   );
+}
+
+export default function search() {
+  return (
+    <Suspense fallback={<>Loading...</>}><SearchEl /></Suspense>
+  )
 }

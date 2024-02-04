@@ -1,9 +1,22 @@
+"use client"
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Search from "../../components/Search";
 import styles from "./page.search.css";
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 
+export default function search() {
+  const searchParams = useSearchParams()
+  const [posts, setPosts] = useState([])
 
-export default function search({ posts }) {
+  useEffect(() => {
+    const query = searchParams.get("q")
+    fetch("/api/post?search=" + query)
+      .then(res => res.json())
+      .then(res => setPosts(res.posts))
+  }, [])
+
   return (
     <main>
       <div className="d-lg-flex align-items-center pb-3 flex mt-2 p-5">
@@ -46,7 +59,7 @@ export default function search({ posts }) {
       <div className="d-lg-flex mt-3 pb-2 align-items-center justify-content-center">
       <img className="d-lg-flex me-5" src="https://cdn.pixabay.com/photo/2022/12/01/04/42/man-7628305_640.jpg" style={{maxHeight: "250px"}} />
         <article className="p-3">
-          <h4>That Time I got Reincarnated as a Lowres Membero</h4>
+          <h4>That Time I got Reincarnated as a Lowres Member</h4>
           <h5>March 7, 2010</h5>
           <p className = "pt-2 container" style={{ 
               width: "70%",
@@ -71,8 +84,4 @@ export default function search({ posts }) {
       </div>
     </main>
   );
-}
-
-export async function getServerSideProps() {
-  
 }

@@ -8,11 +8,7 @@ import { NextRequest } from "next/server";
  */
 export async function GET(req, { params }) {
   const id = params.id
-  if(!isValidObjectId(id)) return Response.json({
-    message: "invalid id!"
-  }, {
-      status: 400
-    })
+  if(!isValidObjectId(id)) return Response.json({ post: null })
   await dbConnect()
   const post = await postModel.findById(id).lean()
   return Response.json({ post })

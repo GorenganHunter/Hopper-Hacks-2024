@@ -1,10 +1,22 @@
+
 "use client";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-export default function Details() {
+export default function Details(tes) {
+  const { id } = useParams()
+  const [post, setPost] = useState()
+
+  useEffect(() => {
+    fetch("/api/post/" + id)
+      .then(res => res.json())
+      .then(res => setPost(res.post))
+  }, [])
+
     const data = {
         title: "Title Of Article",
         author: "M.Fathin Halim",

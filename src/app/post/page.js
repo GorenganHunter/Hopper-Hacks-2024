@@ -4,8 +4,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import ReactQuill from 'react-quill';
 import { useState } from 'react'; // Perbaikan import statement
 import 'react-quill/dist/quill.snow.css';
+import { useRouter } from "next/router";
 
 export default function Post() {
+  const router = useRouter()
   const [post, setPost] = useState({
     title: "",
     content: "",
@@ -25,8 +27,9 @@ export default function Post() {
       headers: { 'Content-Type': 'application/json' },
     })
       .then((res) => res.json())
-      .then((json) => {
-        consol
+      .then((res) => {
+        const id = res._id.toString()
+        router.push("/details/" + id)
       })//eh buset ternyata beliau disini jir
       //btw untuk image gw gak paham cara ngesendnya
       // oke ntar aja

@@ -5,11 +5,11 @@ import { useRouter } from "next/navigation"
 function Search() {
   const router = useRouter()
   const handleSearch = () => {
-    const searchTerm = document.getElementById("searchInput").value.trim();
+    const searchTerm = document.getElementById("searchInput").value;
     if (searchTerm !== "") {
       // Construct the search URL
       //const searchURL = `/api/post?search=${encodeURIComponent(searchTerm)}`;
-      router.push("/search?q=" + encodedURIComponent(searchTerm))
+      router.push("/search?q=" + searchTerm)
       // const response = await fetch(searchURL);
       // Redirect to the search URL
       // window.location.href = searchURL;
@@ -36,3 +36,13 @@ function Search() {
 }
 
 export default Search;
+//run aja kan?
+//itu lagi install
+// dah npm install ? oke
+// ReferenceError: encodedURIComponent is not definedah mantal weita
+// mantap sekali
+// btw di search/page.js tinggal tampilin kan?
+//ReferenceError: encodedURIComponent is not defined
+//sama errornya// iya tapi tes dulu coba sapa tau adabyg err
+//
+//oke tes
